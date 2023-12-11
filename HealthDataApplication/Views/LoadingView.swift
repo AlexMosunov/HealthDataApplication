@@ -6,41 +6,45 @@
 //
 
 import SwiftUI
-
 struct LoadingView: View {
     @State private var progress: CGFloat = 0.0
     @State private var isImportComplete = false
-    @State private var navigateToNextView = false // State to control navigation
+    @State private var navigateToNextView = false
 
     var body: some View {
         VStack {
+            Text("Importing Health Data")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.blue)
+                .padding(.top, 40) // Add space on top
+
             ZStack {
                 Circle()
-                    .stroke(lineWidth: 20.0)
+                    .stroke(lineWidth: 10.0) // Make the ring thinner
                     .opacity(0.3)
                     .foregroundColor(Color.gray)
-                
+
                 Circle()
                     .trim(from: 0.0, to: progress)
-                    .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                    .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))
                     .foregroundColor(Color.blue)
                     .rotationEffect(.degrees(-90))
-                    .animation(nil) // Disable animation initially
+                    .animation(nil)
                     .onAppear {
                         startProgressAnimation()
                     }
-                
+
                 Text("\(Int(progress * 100))%") // Display percentage
                     .font(.largeTitle)
                     .foregroundColor(.green)
-                    .padding(40)
+                    .padding(20)
             }
             .padding()
-            
+
             if isImportComplete {
                 Button(action: {
-                    print("dick")
-                    navigateToNextView = true // Navigate to AnotherView when button tapped
+                    navigateToNextView = true
                 }) {
                     Text("Continue")
                         .foregroundColor(.white)
@@ -49,16 +53,15 @@ struct LoadingView: View {
                         .cornerRadius(8)
                 }
                 .padding()
-//                .disabled(progress != 1.0) // Disable button until progress reaches 100%
             }
-            
+
             Spacer()
         }
         .fullScreenCover(isPresented: $navigateToNextView) {
-            MainView()
+            HealthInsightsView()
         }
     }
-    
+
     private func startProgressAnimation() {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
             progress += 0.01
@@ -67,7 +70,6 @@ struct LoadingView: View {
                 isImportComplete = true
             }
         }
-        // Fire the timer manually for the first time
         timer.fire()
     }
 }

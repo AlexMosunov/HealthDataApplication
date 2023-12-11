@@ -12,8 +12,13 @@ struct HealthDataApplicationApp: App {
     @StateObject private var healthStore = HealthStore()
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(healthStore)
+            if healthStore.isAuthorised {
+                HealthInsightsView()
+                    .environmentObject(healthStore)
+            } else {
+                WelcomeView()
+                    .environmentObject(healthStore)
+            }
         }
     }
 }

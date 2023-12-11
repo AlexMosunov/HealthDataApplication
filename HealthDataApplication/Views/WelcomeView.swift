@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  WelcomeView.swift
 //  HealthDataApplication
 //
 //  Created by User on 08.12.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WelcomeView: View {
     
     @EnvironmentObject var manager: HealthStore
     @State private var authorized = false
@@ -15,11 +15,9 @@ struct ContentView: View {
     @State private var isLoading = false
     
     var body: some View {
-
-            
             VStack {
                 if isLoading {
-                    ProgressView("Loading") // Show loading indicator
+                    ProgressView("Loading")
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(1.0)
                 }
@@ -36,8 +34,6 @@ struct ContentView: View {
                     Button(action: {
                         isLoading = true
                         requestHealthkitAuth()
-                        print("manager.isAuthorised - \(manager.isAuthorised)")
-                        //                            navigateToLoaderView = true
                     }) {
                         Text("Go to Permissions")
                             .foregroundColor(.white)
@@ -63,16 +59,12 @@ struct ContentView: View {
             navigateToLoaderView = true
         }
            Task {
-               // Hide loading indicator when request completes
                do {
-                  
                    let result = try await manager.requestAuthorization()
                    isLoading = false
-                   print("Result - \(result)")
                    if result {
                        navigateToLoaderView = true
                    }
-                  
                } catch {
                    isLoading = false
                    print("Error while requesting authorization: \(error)")
@@ -83,6 +75,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WelcomeView()
     }
 }

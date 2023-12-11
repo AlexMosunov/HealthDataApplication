@@ -8,26 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		CE16295C2B23728E0004DB4B /* HealthDataApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16295B2B23728E0004DB4B /* HealthDataApplicationApp.swift */; };
-		CE16295E2B23728E0004DB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16295D2B23728E0004DB4B /* ContentView.swift */; };
+		CE16295E2B23728E0004DB4B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16295D2B23728E0004DB4B /* WelcomeView.swift */; };
 		CE1629602B2372900004DB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE16295F2B2372900004DB4B /* Assets.xcassets */; };
 		CE1629632B2372900004DB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1629622B2372900004DB4B /* Preview Assets.xcassets */; };
 		CE16296B2B2373070004DB4B /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16296A2B2373070004DB4B /* HealthStore.swift */; };
 		CE16296E2B237BD60004DB4B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16296D2B237BD60004DB4B /* LoadingView.swift */; };
 		CE1629712B24CB1E0004DB4B /* HealthInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1629702B24CB1E0004DB4B /* HealthInsightsView.swift */; };
-		CE1629732B24CC9F0004DB4B /* HealthInsightDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1629722B24CC9F0004DB4B /* HealthInsightDetailScreen.swift */; };
+		CE41978F2B2763D400977347 /* InsightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41978E2B2763D400977347 /* InsightChartView.swift */; };
+		CE4197912B278C6100977347 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4197902B278C6100977347 /* Globals.swift */; };
+		CE4197942B279F5900977347 /* HealthDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4197932B279F5900977347 /* HealthDataType.swift */; };
+		CE4197972B27A29000977347 /* HealthInsight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4197962B27A29000977347 /* HealthInsight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE1629582B23728E0004DB4B /* HealthDataApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthDataApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE16295B2B23728E0004DB4B /* HealthDataApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataApplicationApp.swift; sourceTree = "<group>"; };
-		CE16295D2B23728E0004DB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE16295D2B23728E0004DB4B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		CE16295F2B2372900004DB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1629622B2372900004DB4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE16296A2B2373070004DB4B /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 		CE16296C2B2373200004DB4B /* HealthDataApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthDataApplication.entitlements; sourceTree = "<group>"; };
 		CE16296D2B237BD60004DB4B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CE1629702B24CB1E0004DB4B /* HealthInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInsightsView.swift; sourceTree = "<group>"; };
-		CE1629722B24CC9F0004DB4B /* HealthInsightDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInsightDetailScreen.swift; sourceTree = "<group>"; };
+		CE41978E2B2763D400977347 /* InsightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightChartView.swift; sourceTree = "<group>"; };
+		CE4197902B278C6100977347 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		CE4197932B279F5900977347 /* HealthDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataType.swift; sourceTree = "<group>"; };
+		CE4197962B27A29000977347 /* HealthInsight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthInsight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,15 @@
 		CE16295A2B23728E0004DB4B /* HealthDataApplication */ = {
 			isa = PBXGroup;
 			children = (
+				CE4197952B27A27F00977347 /* Models */,
+				CE4197922B279F4800977347 /* Helpers */,
 				CE16296F2B24CB070004DB4B /* Views */,
 				CE16296C2B2373200004DB4B /* HealthDataApplication.entitlements */,
 				CE1629692B2372F10004DB4B /* Store */,
 				CE16295B2B23728E0004DB4B /* HealthDataApplicationApp.swift */,
 				CE16295F2B2372900004DB4B /* Assets.xcassets */,
 				CE1629612B2372900004DB4B /* Preview Content */,
+				CE4197902B278C6100977347 /* Globals.swift */,
 			);
 			path = HealthDataApplication;
 			sourceTree = "<group>";
@@ -90,11 +99,27 @@
 			isa = PBXGroup;
 			children = (
 				CE16296D2B237BD60004DB4B /* LoadingView.swift */,
-				CE16295D2B23728E0004DB4B /* ContentView.swift */,
+				CE16295D2B23728E0004DB4B /* WelcomeView.swift */,
 				CE1629702B24CB1E0004DB4B /* HealthInsightsView.swift */,
-				CE1629722B24CC9F0004DB4B /* HealthInsightDetailScreen.swift */,
+				CE41978E2B2763D400977347 /* InsightChartView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE4197922B279F4800977347 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CE4197932B279F5900977347 /* HealthDataType.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE4197952B27A27F00977347 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE4197962B27A29000977347 /* HealthInsight.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +192,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE16295E2B23728E0004DB4B /* ContentView.swift in Sources */,
+				CE4197972B27A29000977347 /* HealthInsight.swift in Sources */,
+				CE16295E2B23728E0004DB4B /* WelcomeView.swift in Sources */,
 				CE1629712B24CB1E0004DB4B /* HealthInsightsView.swift in Sources */,
 				CE16296E2B237BD60004DB4B /* LoadingView.swift in Sources */,
+				CE4197942B279F5900977347 /* HealthDataType.swift in Sources */,
 				CE16296B2B2373070004DB4B /* HealthStore.swift in Sources */,
+				CE4197912B278C6100977347 /* Globals.swift in Sources */,
 				CE16295C2B23728E0004DB4B /* HealthDataApplicationApp.swift in Sources */,
-				CE1629732B24CC9F0004DB4B /* HealthInsightDetailScreen.swift in Sources */,
+				CE41978F2B2763D400977347 /* InsightChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
