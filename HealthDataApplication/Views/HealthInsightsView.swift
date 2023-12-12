@@ -14,7 +14,8 @@ struct HealthInsightsView: View {
         NavigationView {
             VStack {
                 List(manager.statisticsDictionary.keys.sorted(), id: \.self) { insightTitle in
-                    if let insight = manager.statisticsDictionary[insightTitle], calendar.isDate(insight.date, inSameDayAs: yesterday ?? .now) {
+                    if let insight = manager.statisticsDictionary[insightTitle],
+                       calendar.isDate(insight.date, inSameDayAs: .now) || calendar.isDate(insight.date, inSameDayAs: yesterday ?? .now) {
                         VStack {
                             Spacer()
                             NavigationLink(destination: InsightChartView(insights: manager.getSortedObjectsWithSameTitle(title: insight.title))) {
@@ -31,13 +32,6 @@ struct HealthInsightsView: View {
                     }
                 }
                 .navigationTitle("Health Insights")
-            }
-            .task {
-                do {
-                    try await manager.calculateStatistics()
-                } catch {
-                    print(error)
-                }
             }
         }
     }
@@ -69,7 +63,11 @@ struct HealthInsightCell: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.bottom, 8)
             }
-            
+            Spacer()
+            Text(insight.date.dayOfWeek() ?? "")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .padding([.leading, .bottom],8)
         }
     }
 }

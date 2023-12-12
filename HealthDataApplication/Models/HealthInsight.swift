@@ -14,6 +14,8 @@ struct HealthInsight: Identifiable, Hashable {
     var num: Int
     var subtitle: String?
     var date: Date
+    var currentDay: String
+    var currentMonth: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

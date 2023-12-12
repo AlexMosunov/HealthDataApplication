@@ -17,5 +17,17 @@ extension Date {
         dateFormatter.dateFormat = "EEEE" // Use "EEE" for abbreviated day names (e.g., "Mon")
         return dateFormatter.string(from: self)
     }
+    
+    func monthYearFormatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM.yy"
+        return dateFormatter.string(from: self)
+    }
+    
+    func formattedCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: self)
+    }
 }
 

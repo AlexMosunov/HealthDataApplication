@@ -13,7 +13,7 @@ struct HealthDataApplicationApp: App {
     var body: some Scene {
         WindowGroup {
             if healthStore.isAuthorised {
-                HealthInsightsView()
+                LoadingView()
                     .environmentObject(healthStore)
             } else {
                 WelcomeView()

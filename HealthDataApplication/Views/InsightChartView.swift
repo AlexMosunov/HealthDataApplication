@@ -15,17 +15,20 @@ struct InsightChartView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                if let insight = insights.first {
+                let dict = manager.averageStats
+                if let title = insights.first?.title, let insight = dict[title] {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color.gray.opacity(0.3))
+                            .frame(maxWidth: .infinity, maxHeight: 150)
                         HealthInsightCell(insight: insight)
+                            .frame(maxWidth: .infinity, maxHeight: 130)
                     }
                 }
                 Spacer()
                 Chart {
                     ForEach(insights) { insight in
-                        BarMark(x: .value("Date", insight.date), y: .value("Count", insight.num))
+                        BarMark(x: .value("Month", insight.currentMonth), y: .value("Count", insight.num))
                             .foregroundStyle(.blue)
                     }
                 }

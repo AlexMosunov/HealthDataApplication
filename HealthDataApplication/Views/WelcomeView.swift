@@ -15,6 +15,7 @@ struct WelcomeView: View {
     @State private var isLoading = false
     
     var body: some View {
+        NavigationView {
             VStack {
                 if isLoading {
                     ProgressView("Loading")
@@ -31,26 +32,32 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 
-                    Button(action: {
+                Button(action: {
                         isLoading = true
                         requestHealthkitAuth()
-                    }) {
-                        Text("Go to Permissions")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(8)
-                    }
-                    .padding()
-                
+                }) {
+                    Text("Go to Permissions")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding()
+                NavigationLink(destination: LoadingView(), isActive: $navigateToLoaderView) {
+                    EmptyView()
+                }
+                .frame(width: 0, height: 0)
+                .opacity(0)
+                .disabled(true)
             }
             .padding()
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            .fullScreenCover(isPresented: $navigateToLoaderView) {
-                LoadingView()
-            }
+            //            .fullScreenCover(isPresented: $navigateToLoaderView) {
+            //                LoadingView()
+            //            }
+        }
     }
 
     private func requestHealthkitAuth() {
